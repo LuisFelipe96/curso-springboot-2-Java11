@@ -16,6 +16,7 @@ import com.example.curso.Repositories.UserRepository;
 import com.example.curso.entities.Category;
 import com.example.curso.entities.Order;
 import com.example.curso.entities.OrderItem;
+import com.example.curso.entities.Payment;
 import com.example.curso.entities.Product;
 import com.example.curso.entities.User;
 import com.example.curso.entities.enums.OrderStatus;
@@ -82,7 +83,10 @@ public class TestConfig implements CommandLineRunner {
 		
 		orderItemRepository.saveAll(Arrays.asList(oi1, oi2, oi3, oi4));
 		
-		
+		Payment pay1 = new Payment(null, Instant.parse("2019-06-20T21:53:07Z"), o1);
+		o1.setPayment(pay1);
+
+		orderRepository.save(o1);
 	}
 
 	
